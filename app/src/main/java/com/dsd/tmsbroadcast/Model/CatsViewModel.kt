@@ -1,7 +1,10 @@
-package com.dsd.tmsbroadcast
+package com.dsd.tmsbroadcast.Model
 
+import android.content.Intent
+import android.os.Bundle
 import androidx.lifecycle.*
-import com.google.android.material.progressindicator.CircularProgressIndicator
+import com.dsd.tmsbroadcast.Classes.Cat
+import com.dsd.tmsbroadcast.Services.CatBroadcastReceiver
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -9,7 +12,9 @@ import kotlinx.coroutines.launch
 class CatsViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     private val _cat = savedStateHandle.getLiveData<Cat>("cat", createCat("Default"))
+    private val catReceiver = CatBroadcastReceiver()
     val cat: MutableLiveData<Cat> = _cat
+
 
     private fun createCat(name: String = "Default"): Cat {
         return Cat(name)
