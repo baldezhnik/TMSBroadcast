@@ -38,18 +38,15 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "My Dear Cat"
-            val descriptionText = "Come and see me"
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
-                description = descriptionText
-            }
-            // Register the channel with the system
-            val notificationManager: NotificationManager =
-                getSystemService(NotificationManager::class.java) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
-        }
+        val name = "My Dear Cat"
+        val description = "Come and see me"
+        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val notificationChannel = NotificationChannel("CHANNEL_ID", name, importance)
+        notificationChannel.description = description
+
+        // Register the channel with the system
+        val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(notificationChannel)
     }
 
 
