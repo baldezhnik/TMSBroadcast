@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.dsd.tmsbroadcast.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.dsd.tmsbroadcast.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/controlFragment"
+        android:name="com.dsd.tmsbroadcast.ControlFragment"
+        android:label="fragment_control"
+        tools:layout="@layout/fragment_control" />
+    <fragment
+        android:id="@+id/catImageFragment"
+        android:name="com.dsd.tmsbroadcast.CatImageFragment"
+        android:label="fragment_cat_image"
+        tools:layout="@layout/fragment_cat_image" />
+</navigation>
