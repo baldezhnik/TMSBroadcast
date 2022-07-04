@@ -2,17 +2,11 @@ package com.dsd.tmsbroadcast
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.dsd.tmsbroadcast.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        startStartFragment()
-    }
-    private fun startStartFragment(){
-        supportFragmentManager.beginTransaction().replace(R.id.container, StartFragment()).commit()
+        setContentView(R.layout.activity_main)
     }
 }

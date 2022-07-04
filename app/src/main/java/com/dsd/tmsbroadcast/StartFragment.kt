@@ -5,24 +5,35 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import androidx.navigation.fragment.findNavController
+import com.dsd.tmsbroadcast.databinding.FragmentMainBinding
 import com.dsd.tmsbroadcast.databinding.FragmentStartBinding
 import kotlin.system.exitProcess
 
 class StartFragment : Fragment() {
-    private lateinit var btnStart : Button
-    private lateinit var btnExit: Button
+
+    private var _binding: FragmentStartBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentStartBinding.inflate(inflater)
-        btnStart = binding.btnStart
-        btnExit = binding.btnExit
-        btnStart.setOnClickListener { startMainFragment() }
-        btnExit.setOnClickListener { exitProcess(0) }
-        return binding.root}
+        _binding = FragmentStartBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-    private fun startMainFragment() {
-        parentFragmentManager.beginTransaction().replace(R.id.container, MainFragment()).commit()}
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btnStart.setOnClickListener {
+            findNavController().navigate(R.id.action_startFragment_to_mainFragment)
+        }
+        binding.btnExit.setOnClickListener { exitProcess(0) }
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
