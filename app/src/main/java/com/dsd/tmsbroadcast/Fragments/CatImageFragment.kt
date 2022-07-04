@@ -1,4 +1,4 @@
-package com.dsd.tmsbroadcast
+package com.dsd.tmsbroadcast.Fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

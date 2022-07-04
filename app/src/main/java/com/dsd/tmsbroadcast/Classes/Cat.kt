@@ -1,4 +1,4 @@
-package com.dsd.tmsbroadcast
+package com.dsd.tmsbroadcast.Classes
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
