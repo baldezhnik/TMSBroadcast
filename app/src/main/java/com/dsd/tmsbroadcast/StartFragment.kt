@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.dsd.tmsbroadcast.databinding.FragmentMainBinding
 import com.dsd.tmsbroadcast.databinding.FragmentStartBinding
 import kotlin.system.exitProcess
 
